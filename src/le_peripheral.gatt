@@ -1,0 +1,14 @@
+PRIMARY_SERVICE, GAP_SERVICE
+CHARACTERISTIC, GAP_DEVICE_NAME, READ, "SM LED Peripheral"
+
+PRIMARY_SERVICE, GATT_SERVICE
+CHARACTERISTIC, GATT_DATABASE_HASH, READ,
+
+// led control Service
+PRIMARY_SERVICE, 00000660-37E4-4E5D-9592-69327D128840
+// lec control Service, Characteristic, led bright with read + notification + authentication
+CHARACTERISTIC,  00000661-37E4-4E5D-9592-69327D128840, READ | NOTIFY | ENCRYPTION_KEY_SIZE_16 | DYNAMIC,
+// lec control Service, Characteristic, led control bright with write + authentication
+CHARACTERISTIC,  00000662-37E4-4E5D-9592-69327D128840, WRITE | ENCRYPTION_KEY_SIZE_16 | DYNAMIC,
+// lec control Service, Characteristic, led control scale with write + authentication
+CHARACTERISTIC,  00000663-37E4-4E5D-9592-69327D128840, WRITE | ENCRYPTION_KEY_SIZE_16 | DYNAMIC,
