@@ -167,4 +167,5 @@ src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj: \
  F:\pico\pico-sdk\lib\cyw43-driver\src/cyw43_ll.h \
  F:\pico\pico-sdk\lib\cyw43-driver\src/cyw43_country.h \
  F:\pico\pico-sdk\src\rp2_common\pico_async_context\include/pico/async_context.h \
- F:\pico\pico-sdk\src\rp2_common\pico_cyw43_arch\include/pico/cyw43_arch/arch_threadsafe_background.h
+ F:\pico\pico-sdk\src\rp2_common\pico_cyw43_arch\include/pico/cyw43_arch/arch_threadsafe_background.h \
+ c:\10\ 2021.10\arm-none-eabi\include\inttypes.h

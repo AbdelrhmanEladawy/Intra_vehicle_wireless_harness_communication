@@ -9,9 +9,9 @@
 #include <stdio.h>
 #include "queue.h"
 #include "btstack.h"
-#include "temp_sensor.h"
 #include "server_common.h"
 #include "pico/cyw43_arch.h"
+#include "inttypes.h"
 
 #define SERVER_DEVICE_NAME "PicoW-HT"
 uint uIReceivedValue = 10;
@@ -54,15 +54,16 @@ static hci_con_handle_t connection_handler;
 gatt_client_service_t environmental_sensing;
 gatt_client_characteristic_t temperature, humidity;
 static btstack_packet_callback_registration_t hci_event_callback_registration;
+static btstack_packet_callback_registration_t sm_event_callback_registration;
 static TaskHandle_t client_taskHandle = NULL;
 static void handle_hci_event(uint8_t packet_type, uint16_t channel, uint8_t *packet, uint16_t size);
 static void handle_gatt_client_event(uint8_t packet_type, uint16_t channel, uint8_t *packet, uint16_t size);
+static void sm_packet_handler(uint8_t packet_type, uint16_t channel, uint8_t *packet, uint16_t size);
 static hci_con_handle_t con_handler;
 int connection_type;
 uint16_t temp_i, humi_i;
 static int le_notification_enabled;
 static uint16_t current_temp;
-uint8_t const profile_data[];
 static btstack_timer_source_t heartbeat;
 static TaskHandle_t server_taskHandle = NULL;
 int i;
@@ -251,11 +252,97 @@ static void handle_gatt_client_event(uint8_t packet_type, uint16_t channel, uint
     }
 }
 
+static void sm_packet_handler(uint8_t packet_type, uint16_t channel, uint8_t *packet, uint16_t size){
+	    UNUSED(channel);
+	    UNUSED(size);
+	 
+	    if (packet_type != HCI_EVENT_PACKET) return;
+	 
+	    bd_addr_t addr;
+	    bd_addr_type_t addr_type;
+	 
+	    switch (hci_event_packet_get_type(packet)) {
+	        case SM_EVENT_JUST_WORKS_REQUEST:
+	            printf("Just works requested\n");
+	            sm_just_works_confirm(sm_event_just_works_request_get_handle(packet));
+	            break;
+	        case SM_EVENT_NUMERIC_COMPARISON_REQUEST:
+	            printf("Confirming numeric comparison: %"PRIu32"\n", sm_event_numeric_comparison_request_get_passkey(packet));
+	            sm_numeric_comparison_confirm(sm_event_passkey_display_number_get_handle(packet));
+	            break;
+	        case SM_EVENT_PASSKEY_DISPLAY_NUMBER:
+	            printf("Display Passkey: %"PRIu32"\n", sm_event_passkey_display_number_get_passkey(packet));
+	            break;
+	        case SM_EVENT_PASSKEY_INPUT_NUMBER:
+	            printf("Passkey Input requested\n");
+	            uint32_t passkey;
+	            passkey = 123456;
+	            printf("Sending fixed passkey %"PRIu32"\n", passkey);
+	            sm_passkey_input(sm_event_passkey_input_number_get_handle(packet), passkey);
+	            break;
+	        case SM_EVENT_PAIRING_STARTED:
+	            printf("Pairing started\n");
+	            break;
+	        case SM_EVENT_PAIRING_COMPLETE:
+	            switch (sm_event_pairing_complete_get_status(packet)){
+	                case ERROR_CODE_SUCCESS:
+	                    printf("Pairing complete, success\n");
+	                    break;
+	                case ERROR_CODE_CONNECTION_TIMEOUT:
+	                    printf("Pairing failed, timeout\n");
+	                    break;
+	                case ERROR_CODE_REMOTE_USER_TERMINATED_CONNECTION:
+	                    printf("Pairing failed, disconnected\n");
+	                    break;
+	                case ERROR_CODE_AUTHENTICATION_FAILURE:
+	                    printf("Pairing failed, authentication failure with reason = %u\n", sm_event_pairing_complete_get_reason(packet));
+	                    break;
+	                default:
+	                    break;
+	            }
+	            break;
+	        case SM_EVENT_REENCRYPTION_STARTED:
+	            sm_event_reencryption_complete_get_address(packet, addr);
+	            printf("Bonding information exists for addr type %u, identity addr %s -> start re-encryption\n",
+	                   sm_event_reencryption_started_get_addr_type(packet), bd_addr_to_str(addr));
+	            break;
+	        case SM_EVENT_REENCRYPTION_COMPLETE:
+	            switch (sm_event_reencryption_complete_get_status(packet)){
+	                case ERROR_CODE_SUCCESS:
+	                    printf("Re-encryption complete, success\n");
+	                    break;
+	                case ERROR_CODE_CONNECTION_TIMEOUT:
+	                    printf("Re-encryption failed, timeout\n");
+	                    break;
+	                case ERROR_CODE_REMOTE_USER_TERMINATED_CONNECTION:
+	                    printf("Re-encryption failed, disconnected\n");
+	                    sm_event_reencryption_complete_get_address(packet, addr);
+	                    addr_type = sm_event_reencryption_started_get_addr_type(packet);
+	                    gap_delete_bonding(addr_type, addr);
+	                    sm_request_pairing(sm_event_reencryption_complete_get_handle(packet));
+	                    break;
+	                case ERROR_CODE_PIN_OR_KEY_MISSING:
+	                    printf("Re-encryption failed, bonding information missing\n\n");
+	                    printf("Assuming remote lost bonding information\n");
+	                    printf("Deleting local bonding information and start new pairing...\n");
+	                    sm_event_reencryption_complete_get_address(packet, addr);
+	                    addr_type = sm_event_reencryption_started_get_addr_type(packet);
+	                    gap_delete_bonding(addr_type, addr);
+	                    sm_request_pairing(sm_event_reencryption_complete_get_handle(packet));
+	                    break;
+	                default:
+	                    break;
+	            }
+	            break;
+	        default:
+	            break;
+	    }
+	}
+
 void server_task(void *pvParameters){  
     l2cap_init();
 
     sm_init();
-    sm_set_io_capabilities(IO_CAPABILITY_NO_INPUT_NO_OUTPUT);
 
     hci_add_event_handler(&hci_event_callback_registration);
 
@@ -266,6 +353,16 @@ void server_task(void *pvParameters){
     // register for ATT event
     att_server_register_packet_handler(handle_hci_event);
     
+    sm_event_callback_registration.callback = &sm_packet_handler;
+	sm_add_event_handler(&sm_event_callback_registration);
+	    
+	// enable LE Secure Connections Only mode - disables Legacy pairing
+	sm_set_secure_connections_only_mode(true);
+	 
+	// LE Secure Connections, Numeric Comparison
+	sm_set_io_capabilities(IO_CAPABILITY_NO_INPUT_NO_OUTPUT);
+	sm_set_authentication_requirements(SM_AUTHREQ_SECURE_CONNECTION|SM_AUTHREQ_MITM_PROTECTION |SM_AUTHREQ_BONDING);
+
     // turn on bluetooth!
     hci_power_control(HCI_POWER_ON);
 
@@ -288,7 +385,7 @@ void network_task(void *pvParameters) {
             cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, uIReceivedValue);
         }while (uxQueueMessagesWaiting(RxQueue) != 0);
 
-        vTaskDelay(50); // Delay for a short time to avoid busy-waiting
+        vTaskDelay(51); // Delay for a short time to avoid busy-waiting
     }
 }
 

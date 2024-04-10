@@ -1,6 +1,6 @@
 add_executable(${ProjectName}
                   main.c
-                  server_common.c
+                  bridge_common.c
 
 )
 

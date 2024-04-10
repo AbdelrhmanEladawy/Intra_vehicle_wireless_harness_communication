@@ -55,7 +55,7 @@ int main()
     return -1;
     }
     // enable logging
-    //hci_dump_init(hci_dump_embedded_stdout_get_instance());
+    hci_dump_init(hci_dump_embedded_stdout_get_instance());
     //xTaskCreate(led_task, "LED_Task", 256, NULL, 1, NULL);
     //xTaskCreate(usb_task, "USB_Task", 256, NULL, 1, NULL);
     xTaskCreate(ble_tasks, "ble_tasks", 256, NULL, 1, NULL);

@@ -3711,6 +3711,30 @@ __/lib/FreeRTOS-Kernel/timers.c.s:
 	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/timers.c.s
 .PHONY : __/lib/FreeRTOS-Kernel/timers.c.s
 
+bridge_common.obj: bridge_common.c.obj
+.PHONY : bridge_common.obj
+
+# target to build an object file
+bridge_common.c.obj:
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj
+.PHONY : bridge_common.c.obj
+
+bridge_common.i: bridge_common.c.i
+.PHONY : bridge_common.i
+
+# target to preprocess a source file
+bridge_common.c.i:
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.i
+.PHONY : bridge_common.c.i
+
+bridge_common.s: bridge_common.c.s
+.PHONY : bridge_common.s
+
+# target to generate assembly for a file
+bridge_common.c.s:
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.s
+.PHONY : bridge_common.c.s
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -3734,30 +3758,6 @@ main.s: main.c.s
 main.c.s:
 	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/main.c.s
 .PHONY : main.c.s
-
-server_common.obj: server_common.c.obj
-.PHONY : server_common.obj
-
-# target to build an object file
-server_common.c.obj:
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj
-.PHONY : server_common.c.obj
-
-server_common.i: server_common.c.i
-.PHONY : server_common.i
-
-# target to preprocess a source file
-server_common.c.i:
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.i
-.PHONY : server_common.c.i
-
-server_common.s: server_common.c.s
-.PHONY : server_common.s
-
-# target to generate assembly for a file
-server_common.c.s:
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build && $(MAKE) $(MAKESILENT) -f src\CMakeFiles\rp2040-freertos-template.dir\build.make src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.s
-.PHONY : server_common.c.s
 
 # Help Target
 help:
@@ -4215,12 +4215,12 @@ help:
 	@echo ... __/lib/FreeRTOS-Kernel/timers.obj
 	@echo ... __/lib/FreeRTOS-Kernel/timers.i
 	@echo ... __/lib/FreeRTOS-Kernel/timers.s
+	@echo ... bridge_common.obj
+	@echo ... bridge_common.i
+	@echo ... bridge_common.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... server_common.obj
-	@echo ... server_common.i
-	@echo ... server_common.s
 .PHONY : help
 
 

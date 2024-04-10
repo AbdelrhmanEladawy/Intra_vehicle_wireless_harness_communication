@@ -144,7 +144,6 @@ src/CMakeFiles/rp2040-freertos-template.dir/client_common.c.obj: \
  F:\pico\pico-sdk\lib\btstack\src/le-audio/gatt-service/broadcast_audio_scan_service_util.h \
  F:\pico\pico-sdk\lib\btstack\src/le-audio/gatt-service/broadcast_audio_scan_service_server.h \
  F:\pico\pico-sdk\lib\btstack\src/le-audio/gatt-service/broadcast_audio_scan_service_util.h \
- F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src\generated/temp_sensor.h \
  F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\server_common.h \
  F:\pico\pico-sdk\src\rp2_common\pico_cyw43_arch\include/pico/cyw43_arch.h \
  F:\pico\pico-sdk\lib\cyw43-driver\src/cyw43.h \
@@ -167,4 +166,5 @@ src/CMakeFiles/rp2040-freertos-template.dir/client_common.c.obj: \
  F:\pico\pico-sdk\lib\cyw43-driver\src/cyw43_ll.h \
  F:\pico\pico-sdk\lib\cyw43-driver\src/cyw43_country.h \
  F:\pico\pico-sdk\src\rp2_common\pico_async_context\include/pico/async_context.h \
- F:\pico\pico-sdk\src\rp2_common\pico_cyw43_arch\include/pico/cyw43_arch/arch_threadsafe_background.h
+ F:\pico\pico-sdk\src\rp2_common\pico_cyw43_arch\include/pico/cyw43_arch/arch_threadsafe_background.h \
+ c:\10\ 2021.10\arm-none-eabi\include\inttypes.h

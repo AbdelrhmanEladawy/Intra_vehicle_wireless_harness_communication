@@ -301,8 +301,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/lib/FreeRTOS-Kernel/stream_buffer.c" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/stream_buffer.c.obj.d"
   "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/lib/FreeRTOS-Kernel/tasks.c" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/tasks.c.obj.d"
   "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/lib/FreeRTOS-Kernel/timers.c" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/timers.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/__/lib/FreeRTOS-Kernel/timers.c.obj.d"
+  "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/src/bridge_common.c" "src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj.d"
   "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/src/main.c" "src/CMakeFiles/rp2040-freertos-template.dir/main.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/main.c.obj.d"
-  "F:/Pico_Project/Intra_vehicle_wireless_harness_communication/src/server_common.c" "src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj.d"
   "F:/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp" "src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" "gcc" "src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d"
   )
 

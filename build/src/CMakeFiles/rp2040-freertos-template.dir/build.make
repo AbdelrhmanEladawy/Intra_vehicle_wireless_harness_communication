@@ -82,19 +82,19 @@ src/CMakeFiles/rp2040-freertos-template.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rp2040-freertos-template.dir/main.c.s"
 	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\main.c -o CMakeFiles\rp2040-freertos-template.dir\main.c.s
 
-src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj: src/CMakeFiles/rp2040-freertos-template.dir/flags.make
-src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj: F:/Pico_Project/Intra_vehicle_wireless_harness_communication/src/server_common.c
-src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj: src/CMakeFiles/rp2040-freertos-template.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj"
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj -MF CMakeFiles\rp2040-freertos-template.dir\server_common.c.obj.d -o CMakeFiles\rp2040-freertos-template.dir\server_common.c.obj -c F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\server_common.c
+src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj: src/CMakeFiles/rp2040-freertos-template.dir/flags.make
+src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj: F:/Pico_Project/Intra_vehicle_wireless_harness_communication/src/bridge_common.c
+src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj: src/CMakeFiles/rp2040-freertos-template.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj"
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj -MF CMakeFiles\rp2040-freertos-template.dir\bridge_common.c.obj.d -o CMakeFiles\rp2040-freertos-template.dir\bridge_common.c.obj -c F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\bridge_common.c
 
-src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rp2040-freertos-template.dir/server_common.c.i"
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\server_common.c > CMakeFiles\rp2040-freertos-template.dir\server_common.c.i
+src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.i"
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\bridge_common.c > CMakeFiles\rp2040-freertos-template.dir\bridge_common.c.i
 
-src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rp2040-freertos-template.dir/server_common.c.s"
-	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\server_common.c -o CMakeFiles\rp2040-freertos-template.dir\server_common.c.s
+src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.s"
+	cd /d F:\Pico_Project\Intra_vehicle_wireless_harness_communication\build\src && "C:\10 2021.10\bin\arm-none-eabi-gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S F:\Pico_Project\Intra_vehicle_wireless_harness_communication\src\bridge_common.c -o CMakeFiles\rp2040-freertos-template.dir\bridge_common.c.s
 
 src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: src/CMakeFiles/rp2040-freertos-template.dir/flags.make
 src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: F:/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
@@ -2272,7 +2272,7 @@ src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico
 # Object files for target rp2040-freertos-template
 rp2040__freertos__template_OBJECTS = \
 "CMakeFiles/rp2040-freertos-template.dir/main.c.obj" \
-"CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj" \
+"CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj" \
 "CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
 "CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj" \
@@ -2434,7 +2434,7 @@ rp2040__freertos__template_OBJECTS = \
 rp2040__freertos__template_EXTERNAL_OBJECTS =
 
 src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/main.c.obj
-src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/server_common.c.obj
+src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/bridge_common.c.obj
 src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 src/rp2040-freertos-template.elf: src/CMakeFiles/rp2040-freertos-template.dir/F_/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
