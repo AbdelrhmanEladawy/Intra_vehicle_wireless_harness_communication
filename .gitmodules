@@ -1,0 +1,6 @@
+[submodule "ECU_systems/common_lib/FreeRTOS-Kernel"]
+	path = ECU_systems/common_lib/FreeRTOS-Kernel
+	url = https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+[submodule "ECU_systems/common_lib/pico-sdk"]
+	path = ECU_systems/common_lib/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
