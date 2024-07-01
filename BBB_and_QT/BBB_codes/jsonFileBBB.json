@@ -1,0 +1,13 @@
+{
+	"door_light" : false,
+	"front_light" : false,
+	"fuel_states" : true,
+	"humidity" : "28",
+	"left_arrow_state" : false,
+	"oil_states" : true,
+	"right_arrow_state" : true,
+	"speed" : "92",
+	"temperature" : "25",
+	"water_states" : true,
+	"wiber" : false
+}
