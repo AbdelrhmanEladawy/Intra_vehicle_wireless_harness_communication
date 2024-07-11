@@ -1,7 +1,7 @@
 # QT Project
 The project aims to simulate a dashboard for a car, reading data such as speed, temperature, and fuel state from a JSON file. The project uses the Qt framework and is structured to be modular and easy to understand.
 
-Grateful thanks to [Adesh Singh](https://github.com/cppqtdev) for providing an example of how the dashboard should look.
+Grateful thanks to [Adesh Singh](https://github.com/cppqtdev) [and Design League](https://youtu.be/UwONyUrIOe8?si=SERkR77MeYzPLczu) for providing an example of how the dashboard should look.
 
 ## File Structure
 * **Car_1.pro:** Qt project file containing build configurations.
